@@ -144,5 +144,7 @@ AUTH_USER_MODEL = 'thirdpartylogin.CustomUser'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+AUTH_USER_MODEL = 'thirdpartylogin.CustomUser'
+
 # Activate Django-Heroku.
 django_heroku.settings(locals())
