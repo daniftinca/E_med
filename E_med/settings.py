@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.twitter',
     'patientprofile',
-    'thirdpartylogin'
+    'thirdpartylogin',
+    'userprofile',
 ]
 
 SITE_ID = 1
@@ -143,6 +144,8 @@ LOGIN_REDIRECT_URL = '/'
 AUTH_USER_MODEL = 'thirdpartylogin.CustomUser'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+AUTH_USER_MODEL = 'thirdpartylogin.CustomUser'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
