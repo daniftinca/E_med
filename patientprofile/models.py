@@ -12,6 +12,7 @@ class Patient(models.Model):
         CustomUser,
         on_delete=models.CASCADE,
         primary_key=True,
+        default=CustomUser()
     )
     address = models.CharField(max_length=250)
     phone = models.IntegerField()
