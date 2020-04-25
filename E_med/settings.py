@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'patientprofile',
     'thirdpartylogin',
     'userprofile',
+    'doctorprofile',
 ]
 
 SITE_ID = 1
@@ -93,7 +94,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'e_med',
         'USER': 'postgres',
-        'PASSWORD': 'Postgres1234',
+        'PASSWORD': '1234',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -144,8 +145,6 @@ LOGIN_REDIRECT_URL = '/'
 AUTH_USER_MODEL = 'thirdpartylogin.CustomUser'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-AUTH_USER_MODEL = 'thirdpartylogin.CustomUser'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
