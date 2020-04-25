@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY', 'bad_secret')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', True)
+DEBUG = os.environ.get('DEBUG', False)
 
 ALLOWED_HOSTS = []
 
@@ -145,6 +145,8 @@ LOGIN_REDIRECT_URL = '/'
 AUTH_USER_MODEL = 'thirdpartylogin.CustomUser'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+AUTH_USER_MODEL = 'thirdpartylogin.CustomUser'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
