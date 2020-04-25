@@ -23,4 +23,5 @@ urlpatterns = [
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
     path('social-auth/', include('thirdpartylogin.urls')),
     path('patient/', include('patientprofile.urls')),
+    path('profile/', include('userprofile.urls')),
 ]

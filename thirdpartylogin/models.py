@@ -7,8 +7,4 @@ class CustomUser(AbstractUser):
         DOCTOR = 1
         PATIENT = 2
 
-    type = models.IntegerField(choices=UserType.choices)
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.type = 1
+    type = models.IntegerField(choices=UserType.choices, default=1)
