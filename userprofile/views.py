@@ -1,21 +1,22 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+import json
 
-# Create your views here.
+from django.forms import model_to_dict
+from django.http import HttpResponse
+from django.core import serializers
+
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
 
-from patientprofile.models import Patient
 from thirdpartylogin.models import CustomUser
 
 
 @csrf_exempt
 def profile(request):
     if request.method == 'GET':
-        if request.user.type == 1:
+        if request.user.type == 2:
             user = CustomUser.objects.get(id=request.user.id)
             patient = user.patient
             if patient:
-                return HttpResponse(patient)
+                return HttpResponse(patient.to_json())
             else:
                 return HttpResponse('user is created but profile is incomplete', status=status.HTTP_206_PARTIAL_CONTENT)

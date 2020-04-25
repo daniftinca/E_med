@@ -1,3 +1,6 @@
+import json
+
+from django.core import serializers
 from django.db import models
 
 # Create your models here.
@@ -24,3 +27,8 @@ class Patient(models.Model):
         self.date_of_birth = date_of_birth
         self.picture = picture
         self.health_care_number = health_care_number
+
+    def to_json(self):
+        data = serializers.serialize('json', [self, ])
+        struct = json.loads(data)
+        return json.dumps(struct[0])
