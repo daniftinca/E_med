@@ -140,5 +140,7 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL = '/'
 
 
+AUTH_USER_MODEL = 'thirdpartylogin.CustomUser'
+
 # Activate Django-Heroku.
 django_heroku.settings(locals())
