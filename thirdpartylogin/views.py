@@ -1,12 +1,14 @@
 from allauth.socialaccount.providers.twitter.views import TwitterOAuthAdapter
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
-
+from django.contrib.auth import login
 # Create your views here.
 from allauth.socialaccount.providers.facebook.views import FacebookOAuth2Adapter
 from rest_auth.registration.views import SocialLoginView
 from rest_auth.social_serializers import TwitterLoginSerializer
 
 from thirdpartylogin.forms import RegisterForm
+from thirdpartylogin.models import CustomUser
 
 
 class FacebookLogin(SocialLoginView):
@@ -22,12 +24,12 @@ def user_register(request):
         form = RegisterForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            if User.objects.filter(username=form.cleaned_data['username']).exists():
+            if CustomUser.objects.filter(username=form.cleaned_data['username']).exists():
                 return render(request, template, {
                     'form': form,
                     'error_message': 'Username already exists.'
                 })
-            elif User.objects.filter(email=form.cleaned_data['email']).exists():
+            elif CustomUser.objects.filter(email=form.cleaned_data['email']).exists():
                 return render(request, template, {
                     'form': form,
                     'error_message': 'Email already exists.'
@@ -39,7 +41,7 @@ def user_register(request):
                 })
             else:
                 # Create the user:
-                user = User.objects.create_user(
+                user = CustomUser.objects.create_user(
                     form.cleaned_data['username'],
                     form.cleaned_data['email'],
                     form.cleaned_data['password']
