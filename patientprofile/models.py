@@ -5,11 +5,10 @@ from thirdpartylogin.models import CustomUser
 
 
 class Patient(models.Model):
-    user = models.ForeignKey(
+    user = models.OneToOneField(
         CustomUser,
-        models.SET_NULL,
-        blank=True,
-        null=True,
+        on_delete=models.CASCADE,
+        primary_key=True,
     )
     address = models.CharField(max_length=250)
     phone = models.IntegerField()
@@ -17,9 +16,9 @@ class Patient(models.Model):
     picture = models.ImageField()
     health_care_number = models.IntegerField()
 
-    def __init__(self, user, address, phone, date_of_birth, picture, health_care_number, *args, **kwargs) -> None:
+    def __init__(self,  address, phone, date_of_birth, picture, health_care_number, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
-        self.user = user
+        # self.user = user
         self.address = address
         self.phone = phone
         self.date_of_birth = date_of_birth

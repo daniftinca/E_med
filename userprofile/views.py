@@ -13,7 +13,8 @@ from thirdpartylogin.models import CustomUser
 def profile(request):
     if request.method == 'GET':
         if request.user.type == 1:
-            patient = Patient.objects.filter(user_id__id=request.user.id).prefetch_related('user').first()
+            user = CustomUser.objects.get(id=request.user.id)
+            patient = user.patient
             if patient:
                 return HttpResponse(patient)
             else:

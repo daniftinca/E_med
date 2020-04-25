@@ -14,7 +14,9 @@ def patient(request):
     if request.method == 'POST':
         patient_data = json.loads(request.body)
         user = CustomUser.objects.get(id=patient_data['user'])
-        patient_profile = Patient(user, patient_data['address'], patient_data['phone'], patient_data['date_of_birth'],
+        patient_profile = Patient( patient_data['address'], patient_data['phone'], patient_data['date_of_birth'],
                                   patient_data['picture'], patient_data['health_care_number'])
+        patient_profile.user = user
         patient_profile.save()
         return HttpResponse('patient profile created', status=status.HTTP_201_CREATED)
+    return HttpResponse('something',status=status.HTTP_400_BAD_REQUEST)
