@@ -1,3 +1,10 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-# Create your models here.
+
+class CustomUser(AbstractUser):
+    class UserType(models.IntegerChoices):
+        DOCTOR = 1
+        PATIENT = 2
+
+    suit = models.IntegerField(choices=UserType.choices)
