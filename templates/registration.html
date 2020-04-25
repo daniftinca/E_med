@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="">
+		<div class="">
+			<div class="user_card">
+				<div class="">
+					<h3 id="form-title">REGISTER ACCOUNT</h3>
+				</div>
+				<div class="">
+
+					<form action="{% url 'registration:user_register' %}" method="post">
+						{% csrf_token %}
+                        {% if error_message %}
+                            <p class="">{{ error_message }}</p>
+                        {% endif %}
+						<div class="">
+							{{form.username}}
+						</div>
+						<div class="">
+							{{form.email}}
+						</div>
+						<div class="">
+                                {{ form.password }}
+						</div>
+						<div class="">
+
+                                {{ form.password_repeat }}
+						</div>
+				   		<div class="">
+				 			<input class="" type="submit" value="Register">
+				   		</div>
+
+					</form>
+				</div>
+
+				{{form.errors}}
+
+				<div class="">
+					<div class="">
+						Already have an account? <a href="{% url 'login' %}" class="">Login</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
