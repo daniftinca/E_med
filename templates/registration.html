@@ -9,7 +9,7 @@
 				</div>
 				<div class="">
 
-					<form action="{% url 'registration:user_register' %}" method="post">
+					<form action="{% url 'thirdpartylogin:user_register' %}" method="post">
 						{% csrf_token %}
                         {% if error_message %}
                             <p class="">{{ error_message }}</p>

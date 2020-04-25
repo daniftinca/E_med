@@ -21,6 +21,6 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('rest-auth/', include('rest_auth.urls')),
     path('rest-auth/registration/', include('rest_auth.registration.urls')),
-    path('social-auth/', include('thirdpartylogin.urls')),
+    path('accounts/', include('thirdpartylogin.urls')),
     path('patient/', include('patientprofile.urls')),
 ]

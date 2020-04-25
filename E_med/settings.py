@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.twitter',
     'patientprofile',
-    'thirdpartylogin'
+    'thirdpartylogin',
 ]
 
 SITE_ID = 1

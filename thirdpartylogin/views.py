@@ -59,6 +59,6 @@ def user_register(request):
 
     # No post data availabe, let's just show the page.
     else:
-        form = RegisterForm()
 
+        form = RegisterForm()
     return render(request, template, {'form': form})
