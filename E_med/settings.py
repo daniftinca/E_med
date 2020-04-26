@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY', 'bad_secret')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', False)
+DEBUG = os.environ.get('DEBUG', True)
 
 ALLOWED_HOSTS = []
 
@@ -51,6 +51,9 @@ INSTALLED_APPS = [
     'thirdpartylogin',
     'userprofile',
     'doctorprofile',
+    'comment',
+    'symptom',
+    'consult',
 ]
 
 SITE_ID = 1
@@ -96,7 +99,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'PORT': '5434',
     }
 }
 
