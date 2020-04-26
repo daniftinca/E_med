@@ -15,7 +15,7 @@ class Consult(models.Model):
         on_delete=models.CASCADE,
         related_name='doctors_requests_created',
     )
-    date = models.DateField()
+    date = models.CharField(max_length=50)
     problem_description = models.CharField(max_length=250)
 
     STATUS_CHOICES = [

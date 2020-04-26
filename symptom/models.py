@@ -12,6 +12,7 @@ class Symptom(models.Model):
 
     objects = models.Manager()
 
-    def __init__(self, description, *args, **kwargs) -> None:
+    def __init__(self, name, description, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
+        self.name = name
         self.description = description

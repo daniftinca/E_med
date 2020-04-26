@@ -15,7 +15,7 @@ class Comment(models.Model):
         on_delete=models.CASCADE,
     )
     text = models.CharField(max_length=250)
-    date = models.DateField()
+    date = models.CharField(max_length=50)
 
     objects = models.Manager()
 

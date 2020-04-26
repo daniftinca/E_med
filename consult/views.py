@@ -18,8 +18,7 @@ from thirdpartylogin.models import CustomUser
 @csrf_exempt
 def consult(request):
     if request.method == 'GET':
-        user = CustomUser.objects.get(id=request.user.id)
-        user_consult = user.consult
+        user_consult = Consult.objects.filter(patient__id=request.user.id).first()
         if user_consult:
             return HttpResponse(user_consult.to_json())
         else:
