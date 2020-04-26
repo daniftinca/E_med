@@ -17,7 +17,7 @@ class FacebookLogin(SocialLoginView):
 
 def user_register(request):
     # if this is a POST request we need to process the form data
-    template = 'registration/registration.html'
+    template = 'registration.html'
 
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
