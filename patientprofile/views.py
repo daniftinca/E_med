@@ -1,7 +1,12 @@
 import json
+from functools import singledispatch
+from json import JSONEncoder
 
 from django.core import serializers
-from django.http import HttpResponse
+from django.db.models.functions import datetime
+from django.http import HttpResponse, JsonResponse
+import datetime
+from django.core.serializers.json import DjangoJSONEncoder
 
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
@@ -20,5 +25,5 @@ def patient(request):
                                   patient_data['picture'], patient_data['health_care_number'])
         patient_profile.user = user
         patient_profile.save()
-        return HttpResponse(patient_profile.to_json(), status=status.HTTP_201_CREATED)
+        return HttpResponse(json.dumps(patient_data), status=status.HTTP_201_CREATED)
     return HttpResponse('something', status=status.HTTP_400_BAD_REQUEST)

@@ -17,6 +17,6 @@ def profile(request):
             user = CustomUser.objects.get(id=request.user.id)
             patient = user.patient
             if patient:
-                return HttpResponse(patient.to_json())
+                return HttpResponse(json.dumps(patient))
             else:
                 return HttpResponse('user is created but profile is incomplete', status=status.HTTP_206_PARTIAL_CONTENT)
