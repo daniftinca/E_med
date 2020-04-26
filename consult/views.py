@@ -40,7 +40,7 @@ def consult(request):
 def consult_symptoms(request):
     if request.method == 'GET':
         consult_data = json.loads(request.body)
-        symptoms = Symptom.objects.filter(consult__id=consult_data['id'])
+        symptoms = Symptom.objects.filter(consult__id=consult_data['consult'])
         return HttpResponse(serializers.serialize('json', symptoms), status=status.HTTP_200_OK)
     if request.method == 'POST':
         symptom_data = json.loads(request.body)
