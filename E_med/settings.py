@@ -50,6 +50,10 @@ INSTALLED_APPS = [
     'patientprofile',
     'thirdpartylogin',
     'userprofile',
+    'doctorprofile',
+    'comment',
+    'symptom',
+    'consult',
 ]
 
 SITE_ID = 1
@@ -93,9 +97,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'e_med',
         'USER': 'postgres',
-        'PASSWORD': 'Postgres1234',
+        'PASSWORD': '1234',
         'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'PORT': '5433',
     }
 }
 

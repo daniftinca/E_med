@@ -35,12 +35,3 @@ class Patient(models.Model):
         struct = json.loads(data)
         data = json.dumps(struct[0])
         return data
-# class PatientDto:
-#     def __init__(self, user, address, phone, date_of_birth, picture, health_care_number, *args, **kwargs) -> None:
-#         super().__init__(*args, **kwargs)
-#         self.user = user
-#         self.address = address
-#         self.phone = phone
-#         self.date_of_birth = date_of_birth
-#         self.picture = picture
-#         self.health_care_number = health_care_number
