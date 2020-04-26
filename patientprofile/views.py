@@ -2,6 +2,7 @@ import json
 from functools import singledispatch
 from json import JSONEncoder
 
+from django.contrib.auth.models import AbstractUser
 from django.core import serializers
 from django.db.models.functions import datetime
 from django.http import HttpResponse, JsonResponse
@@ -23,6 +24,7 @@ def patient(request):
         user.type = 2
         patient_profile = Patient(patient_data['address'], patient_data['phone'], patient_data['date_of_birth'],
                                   patient_data['picture'], patient_data['health_care_number'])
+        user.save()
         patient_profile.user = user
         patient_profile.save()
         return HttpResponse(json.dumps(patient_data), status=status.HTTP_201_CREATED)
