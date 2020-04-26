@@ -30,10 +30,8 @@ def doctor(request):
     if request.method == 'POST':
         doctor_data = json.loads(request.body)
         user = CustomUser.objects.get(id=doctor_data['user'])
-        user.type = 1
         doctor_profile = Doctor(doctor_data['clinic'], doctor_data['phone'],
                                 doctor_data['picture'])
-        # user.save()
         doctor_profile.user = user
         doctor_profile.save()
         doctor_profile.speciality.add(doctor_data['speciality'])

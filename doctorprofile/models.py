@@ -25,6 +25,7 @@ class Doctor(models.Model):
         CustomUser,
         on_delete=models.CASCADE,
         primary_key=True,
+        blank=True
     )
     speciality = models.ManyToManyField(Speciality)
     clinic = models.CharField(max_length=250)
